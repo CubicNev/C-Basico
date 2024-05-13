@@ -1,2 +1,2 @@
-# C-Basico
+# C++-Basico
 Programas básicos en C++

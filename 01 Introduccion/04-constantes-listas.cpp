@@ -1,7 +1,7 @@
 /**
  * Constantes y Listas(Arreglos)
  * Autor: Carlos Nevárez - CubicNev
- * Fecha: 13-Mayo-2024
+ * Fecha: 15-Mayo-2024
  *
  * Se muestra la creación de variables
 */

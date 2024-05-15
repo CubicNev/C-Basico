@@ -30,23 +30,76 @@ Todos los programas comienzan por la función `main()`, lo que se coloque dentro
 
 > ⚠️ **Cuidado:** Todas las instrucciones (ordenes directas) deben terminar con un punto y coma `;`
 
-## Entrada y salida de datos
+### Comentarios
+
+- Con las dobles //
+
+```C++
+// Este es un comentario de una línea
+```
+
+- Tambien con /**/
+
+```C++
+/*
+ Esto es un bloque de comentario
+*/
+```
+
+## Entrada y salida de datos `<iostream>`
+
+También como conocido como *Input/Output stream*. A grandes rasgos `<iostream>` permite la entrada y salida de datos. Un stream es un flujo de datos, por lo que la librería nos da la capacidad de "Stremear" datos en nuestra termina. Hay otras librerías que nos permiten usar más formatos de datos.
 
 ### Salida
 
-Para meter datos desde una terminal se puede hacer uso de `cout` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `<<` y depués lo que se desea imprimir (Puede ir desde un String literal o una variable).
+Para meter datos desde una terminal se puede hacer uso de `cout` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `<<` (representando **salida** de datos) y después lo que se desea imprimir (Puede ir desde un String literal o una variable).
 
 ```C++
 int n = 365;
-cout << "Hola Mundo" << endl;
+cout << "Hola Mundo" << endl; // Toma cada una de las letras y mandalas a la terminal
 cout << n;
 ```
 
+> 📝 **Nota:** `<iostream>` lo utiliza como una forma de ingresar datos a la terminal
+>
 > 📝 **Nota:** `endl` se encuentra de la misma forma dentro del `namesace std` y sirve para insertar un salto de línea. Aunque es una mala práctica usarlo, mas info en [Namespaces como malas practicas][1].
 
 ### Entrada
 
-Para meter datos desde una terminal se puede hacer uso de `cin` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `>>` y depués un variable donde se almacenará lo que se ingrese.
+Para meter datos desde una terminal se puede hacer uso de `cin` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `>>` (representando **entrada** de datos) y depués un variable donde se almacenará lo que se ingrese.
+
+```C++
+// Recibiendo el dato <edad> desde consola
+int edad = 0;
+cin >> edad;
+```
+
+Podemos almacenar datos o información en variables para poder manipular su estado de acuerdo a lo que necesitemos.
+
+> ⚠️ **Cuidado:** La forma de definir como se guardan los datos depende del tipo de dato que indiques que va a almacenar. Hay que ser cuidadoso con los tipos si vas a manejar, por ejemplo, operaciones matematicas debes usar variables de tipo `int`, `double`, `float`, etc.
+
+`cin` Lee del teclado hasta que encuentra un espacio en blanco, tabulador o nueva linea, o sea una palabra a la vez. Si ingresamos: `1234 hola` se guarda solamente 1234 en la variable.
+
+```C++
+int variable;
+cin >> variable;
+```
+
+Por lo que para leer el “hola” habría que usar una variable adicional como en
+
+```C++
+int numero;
+string texto;
+cin >> numero >> texto;
+```
+
+> **Recuerda:** Las variables deben ser del tipo string o bien coincidir con los tipos de datos ingresados.
+
+### info que cura
+
+La 'c' en `cin` y `cout` significa *character*, de tal forma que tienes *character in* y *character out*.
+
+Fuente: [Understanding the Concept of Cin Object in C++ for Beginners][5]
 
 ## Compilando y ejecutando el programa
 
@@ -225,13 +278,35 @@ Exiten diferentes tipos de operadores:
 
 Las operaciones funcionan de forma independiente, los resultados pueden ser almacenados en variables o directamente impresos en la terminal.
 
+## Secuencias de escape
+
+Las secuencias de escape se utilizan para definir ciertos caracteres especiales dentro de cadenas de texto.
+
+| Secuencia | Significado |
+| --------- | ----------- |
+| \a | Carácter de alerta |
+| \b | Carácter de retroceso |
+| \f | Carácter de alimentación de forma |
+| \n | Carácter de línea nueva |
+| \r | Retorno de carro (sin alimentación de línea)T |
+| \t | Carácter de tabulación horizontal |
+| \v | Carácter de tabulación vertical |
+| \\\ | Carácter de diagonal invertida |
+| \' | Carácter de apóstrofo |
+| \" | Carácter de comillas |
+| \? | Carácter de signo de interrogación |
+| \ | Valor octal, como 07 |
+| \x | Valor hexadecimal, como \xFFFF |
+
 ## Material extra
 
 - [Pause es mala practica](https://youtu.be/VcLMLEw4sn8?si=pNHlSlGFRDf2XccL)
 - [Punteros](https://youtu.be/2ybLD6_2gKM?si=lz0TaPpZ-xSXNwUw)
 - [Include](https://www.geeksforgeeks.org/c-c-include-directive-with-examples/)
+- [Tipos integrados (C++)](https://learn.microsoft.com/es-es/cpp/cpp/fundamental-types-cpp?view=msvc-170)
 
 [1]: <https://www.youtube.com/watch?v=etQX4Mme2f4> "Namespaces como malas practicas"
 [2]: <https://learn.microsoft.com/es-es/cpp/cpp/cpp-built-in-operators-precedence-and-associativity?view=msvc-160> "Operadores integrados en C++"
 [3]: <https://learn.microsoft.com/es-es/cpp/cpp/cpp-type-system-modern-cpp?view=msvc-170> "Sistema de tipos de C++"
 [4]: <https://learn.microsoft.com/es-es/cpp/cpp/data-type-ranges?view=msvc-170> "Intervalos de tipo de datos"
+[5]: <https://www.simplilearn.com/tutorials/cpp-tutorial/cpp-cin#:~:text=The%20%22c%22%20in%20C%2B%2B,belongs%20to%20the%20istream%20class> "Understanding the Concept of Cin Object in C++ for Beginners"

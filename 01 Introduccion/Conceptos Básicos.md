@@ -30,9 +30,23 @@ Todos los programas comienzan por la función `main()`, lo que se coloque dentro
 
 > ⚠️ **Cuidado:** Todas las instrucciones (ordenes directas) deben terminar con un punto y coma `;`
 
-## Salida
+## Entrada y salida de datos
 
-Se hace uso de `cout` de la libreria `<iostream>` seguido del operador `<<` y luego el mensaje que se quiere mostrar.
+### Salida
+
+Para meter datos desde una terminal se puede hacer uso de `cout` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `<<` y depués lo que se desea imprimir (Puede ir desde un String literal o una variable).
+
+```C++
+int n = 365;
+cout << "Hola Mundo" << endl;
+cout << n;
+```
+
+> 📝 **Nota:** `endl` se encuentra de la misma forma dentro del `namesace std` y sirve para insertar un salto de línea. Aunque es una mala práctica usarlo, mas info en [Namespaces como malas practicas][1].
+
+### Entrada
+
+Para meter datos desde una terminal se puede hacer uso de `cin` que es una instruccion que esta dentro del espacio de nombres estándar (`namespace std`) y forma parte de la libreria `<iostream>`, seguido del operador `>>` y depués un variable donde se almacenará lo que se ingrese.
 
 ## Compilando y ejecutando el programa
 
@@ -41,7 +55,7 @@ Si estas usando VS Code y tienes alguna extensión para ejecutar, solo dale al p
 **Compilar:**
 
 ```bash
-g++ -o <nombreArchivoSalida> main.cpp
+g++ -o {nombreArchivoSalida} {Archivo Fuente}
 ```
 
 **Ejecutar:**
@@ -76,6 +90,38 @@ La mayoría de tamaños es de 4 bytes (32 bits) debido a la facilidad de manejo 
 
 > ⚠️ **Cuidado:** No todos los compiladores cumplen al 100% con los estandares o incluso dependiendo la arquitectura se cambien algunas concepciones, asi que conviene siempre checar: tamaño de bytes del tipo de dato, número máximo y mínimo de valores que pueden almacenar y principales tipos de datos soportados.
 
+### Rangos de valores
+
+| Tipo de dato | `bytes` | bits | Rango | N |
+| ------------ | -------------- | ---- | ----- | ----------------- |
+| **char** | 1 | 8 | -128 a 127 | 2^8 = 256 |
+| **usigned char** | 1 | 8 | 0 a 255 | 256 |
+| **signed char** | 1 | 8 | -128 a 127 | 256 |
+| **wchar_t** \* | 2 | 16 | -32,768 a 32,767 | 65,536 |
+| **short int** | 2 | 16 | -32,768 a 32,767 | 65,536 |
+| **int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
+| **unsigned int** | 4 | 32 | 0 a 4,294,967,295 | 4,294,967,296 |
+| **signed int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
+| **unsigned short int** | 2 | 16 | 0 a 65,535 | 65,536 |
+| **signed short int** | 2 | 32 | -32,468 a 32,767 | 65,536 |
+| **long int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
+| **signed long int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
+| **unsigned long int** | 4 | 32 | 0 a 4,294,967,295 | 4,294,967,296 |
+| **long long** | 8 | 64 | -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 (-9.2 x 10^15 a 9.2 x 10^15) | 18,446,744,073,709,551,616 (1.8 x 10^16) |
+| **unsigned long long** | 8 | 64 |De 0 a 18.446.744.073.709.551.615 | 1.8 x 10^16 |
+| **double** | 8 | 64 | 1,7E +/- 308 (15 dígitos) | 1.8 x 10^16 |
+| **float** | 4 | 32 | 3,4E +/- 38 (7 dígitos) | 4,2 x 10^9 |
+| **long double** | 12 | 96 | - | - |
+| **__int128** (solo linux) | 16 | 128 | - | - |
+
+> \* `wchar_t` Representa valores de caracteres “anchos” que se pueden codificar en formato UNICODE. es el tipo de carácter que se usa en cadenas de tipo `std::wstring`. (Revisar [Sistema de tipos de C++][3], [Intervalos de tipo de datos][4])
+>
+> 📝 **Nota 1:** Al parecer usar `long int` es lo mismo que usar `int`
+>
+> 📝 **Nota 2:** Puedes omitir la palabra `unsigned` ya que esta implementada por default
+>
+> 📝 **Nota 3:** C++ no tiene un tipo `byte` implementado pero se puede simular con `unsigned char`
+
 ## Variables
 
 Son la forma en la que se almacenan todos los datos relacionadas a la función que realizara un programa durante su ejecución. La sintaxis consiste en:
@@ -84,9 +130,108 @@ Son la forma en la que se almacenan todos los datos relacionadas a la función q
 
 De tal forma que se pueden crear variables de tipo int, bool, char, etc. Dar un valor incial a una variable, es una buena práctica, el valor inicial depende del caso de uso.
 
+> "Los buenos nombres para variables nos hablan sobre qué se trata ese valor"
+
+Algunas reglas:
+
+- Los nombres de variables no pueden contener espacios.
+- No se pueden usar carácteres espaciales.
+- No pueden empezar con números o caráteres especiales.
+
+## Constantes y Listas
+
+### Constantes
+
+Declarar una variable como constante sirve para asegurar que su valor no se va a editar durante la ejecucion del programa. De esta forma el compilador no realiza optimizaciones para que la variable se edite durante la ejecución y se evita que su edición cause un problema.
+
+Se usa la palabra `const` antes del tipo de dato, de la siguiente forma.
+
+```C++
+const float g = 9.18;
+```
+
+> 📝 **Nota:** Una particularidad adicional que tienen las constantes, es que no son almacenadas en memoria al momento de la ejecución, como es el caso de las variables. El compilador es quien se encarga de reemplazar el valor de dicha constante en cada lugar del programa en que se es referenciado. Sirve para **optimizar memoria**.
+
+### Listas
+
+Las listas (arreglos) sirven para guardar conjuntos de valores, de esta forma no se hace una variable por cada valor. Por ejemplo, es mejor tener una lista de edades que una variable por cada edad.
+
+Su declaracion sigue la siguiente sintaxis:
+
+> `tipoDeDato` `nombreVariable``[]` = `{valor1, valor2, ..., valorN}`;
+
+La parte importante son los corchetes [] y {}, unos indican que es una lista (Y dentro también se puede indicar su tamaño), y dentro de los otros se ponen los valores que contiene la lista. Veamoslo de forma práctica:
+
+```C++
+/* Ejemplos de formas de declarar una lista */
+float R[10] = {2, 32, 4.6, 2, 1, 0.5, 3, 8, 0, 12};
+float S[] = {2, 32, 4.6, 2, 1, 0.5, 3, 8, 0, 12};
+int N[] = {1, 2, 3, 6};
+char Mensaje[] = "Error de lectura";
+char Saludo[] = {'H', 'o', 'l', 'a', 0};
+```
+
+#### Acceso dentro de una lista
+
+La forma de acceder un valor de la lista, es por el número de lista, lo que se conoce como **índice**, comenzando desde el *0*.
+
+```C++
+int lista_edades[] = {18,24,16};
+
+// Asignacion
+lista_edades[0] = 19;
+lista_edades[1] = 25;
+lista_edades[2] = 30;
+
+// Acceso
+cout << "Primer elemento: " << lista_edades[0] << endl;
+cout << "Segundo elemento: " << lista_edades[1] << endl;
+cout << "Tercer elemento: " << lista_edades[2] << endl;
+```
+
+## Operadores
+
+Exiten diferentes tipos de operadores:
+
+1. Aritméticos
+    - Suma `+`
+    - Resta `-`
+    - Multiplicación `*`
+    - División `/`
+2. Comparación
+    - Igual que `==`
+    - Mayor que `>`
+    - Menor que `<`
+    - Mayor o igual que `>=`
+    - Menor o igual que `<=`
+    - Distinto que `!=`
+3. Asignación
+    - Igual `=`
+    - Incremento `+=`
+    - Decremento `-=`
+    - Dividendo `/=`
+    - Aumento en 1 `++`
+    - Disminución en 1 `--`
+4. Lógicos
+    - AND `&&`
+    - OR `||`
+    - NOT `!`
+5. Otros
+    - Funciones de consulta `sizeof` `typeof`
+    - Corrimiento de bits/Asignación de strings `>>` `<<`
+    - Logica de bits `&` `|` `~`
+
+> Puedes ver más operadores ve a [Operadores integrados en C++][2]
+
+Las operaciones funcionan de forma independiente, los resultados pueden ser almacenados en variables o directamente impresos en la terminal.
+
 ## Material extra
 
-- [Namespaces como malas practicas](https://www.youtube.com/watch?v=etQX4Mme2f4)
 - [Pause es mala practica](https://youtu.be/VcLMLEw4sn8?si=pNHlSlGFRDf2XccL)
 - [Punteros](https://youtu.be/2ybLD6_2gKM?si=lz0TaPpZ-xSXNwUw)
 - [Include](https://www.geeksforgeeks.org/c-c-include-directive-with-examples/)
+
+[1]: <https://www.youtube.com/watch?v=etQX4Mme2f4> "Namespaces como malas practicas"
+[2]: <https://learn.microsoft.com/es-es/cpp/cpp/cpp-built-in-operators-precedence-and-associativity?view=msvc-160> "Operadores integrados en C++"
+[3]: <https://learn.microsoft.com/es-es/cpp/cpp/cpp-type-system-modern-cpp?view=msvc-170> "Sistema de tipos de C++"
+[4]: <https://learn.microsoft.com/es-es/cpp/cpp/data-type-ranges?view=msvc-170> "Intervalos de tipo de datos"

@@ -1,4 +1,5 @@
 /**
+ * Variables
  * Autor: Carlos Nevárez - CubicNev
  * Fecha: 13-Mayo-2024
  *

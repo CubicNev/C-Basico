@@ -4,7 +4,7 @@
 
 Los archivos con código fuente de C++ tienen extensión `.cpp`.
 
-La directiva `#include <libreria>` permite importar funcionales que llegue a necesitar.
+La directiva `#include <libreria>` permite importar funcionales que llegue a necesitar. Estas se hacen a nivel de pre-procesamiento.ali
 **Por ejemplo**
 
 ```C++

@@ -4,7 +4,7 @@
 
 ### 60's - 70's
 
-Desarrollado por **Dennis Ritchie** y su equipo de investigaroes en los laboratorios Bell de la AT&T Corporation mientras desarrollaban Unix. Empezando con el lenguaje C, no había ni siquiera monitores, si no, papel y tinta. Además se hacía uso de un teclado especial.
+Desarrollado por **Dennis Ritchie** y su equipo de investigadores en los laboratorios Bell de la AT&T Corporation mientras desarrollaban Unix. Empezando con el lenguaje C, no había ni siquiera monitores, si no, papel y tinta. Además se hacía uso de un teclado especial.
 
 Aún así la introduccion al concepto de entrada y salida de datos se dio.
 

@@ -47,4 +47,26 @@ for (int i = 0; i < limite; i++){
 }
 ```
 
-## Ciclo `while`
+## Ciclo `while` y `do-while`
+
+No tienen un límite numerico, se pueden ejecutar indefinidamente hasta que se cumpla cierta condición que los haga terminar.
+
+### `while`
+
+```C++
+while (/* condition */)
+{
+    /* code */
+}
+```
+
+### `do-while`
+
+Se hace una primera ejecución antes de preguntar la condición.
+
+```C++
+do
+{
+    /* code */
+} while (/* condition */);
+```

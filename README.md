@@ -18,4 +18,3 @@ Conoce uno de los lenguajes de programación más versátiles y maduros de la in
 3. Funciones 📦
    1. [Funciones](./03%20Funciones/Funciones.md)
    2. [Biblioteca Estándar](./03%20Funciones/Biblioteca%20estandar.md)
-ga

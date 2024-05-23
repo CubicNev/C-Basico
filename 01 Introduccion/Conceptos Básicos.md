@@ -4,7 +4,7 @@
 
 Los archivos con código fuente de C++ tienen extensión `.cpp`.
 
-La directiva `#include <libreria>` permite importar funcionales que llegue a necesitar. Estas se hacen a nivel de pre-procesamiento.ali
+La directiva `#include <libreria>` permite importar funcionales que llegue a necesitar. Estas se hacen a nivel de pre-procesamiento
 **Por ejemplo**
 
 ```C++
@@ -147,7 +147,7 @@ La mayoría de tamaños es de 4 bytes (32 bits) debido a la facilidad de manejo 
 
 | Tipo de dato | `bytes` | bits | Rango | N |
 | ------------ | -------------- | ---- | ----- | ----------------- |
-| **char** | 1 | 8 | -128 a 127 | 2^8 = 256 |
+| **char** | 1 | 8 | -128 a 127 | $2^8 = 256$ |
 | **usigned char** | 1 | 8 | 0 a 255 | 256 |
 | **signed char** | 1 | 8 | -128 a 127 | 256 |
 | **wchar_t** \* | 2 | 16 | -32,768 a 32,767 | 65,536 |
@@ -160,10 +160,10 @@ La mayoría de tamaños es de 4 bytes (32 bits) debido a la facilidad de manejo 
 | **long int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
 | **signed long int** | 4 | 32 | -2,147,483,648 a 2,147,483,647 | 4,294,967,296 |
 | **unsigned long int** | 4 | 32 | 0 a 4,294,967,295 | 4,294,967,296 |
-| **long long** | 8 | 64 | -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 (-9.2 x 10^15 a 9.2 x 10^15) | 18,446,744,073,709,551,616 (1.8 x 10^16) |
-| **unsigned long long** | 8 | 64 |De 0 a 18.446.744.073.709.551.615 | 1.8 x 10^16 |
-| **double** | 8 | 64 | 1,7E +/- 308 (15 dígitos) | 1.8 x 10^16 |
-| **float** | 4 | 32 | 3,4E +/- 38 (7 dígitos) | 4,2 x 10^9 |
+| **long long** | 8 | 64 | -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 (-9.2 x 10^15 a 9.2 x 10^15) | 18,446,744,073,709,551,616 ($1.8 \times 10^{16}$) |
+| **unsigned long long** | 8 | 64 |De 0 a 18.446.744.073.709.551.615 | $1.8 \times 10^{16}$ |
+| **double** | 8 | 64 | 1,7E +/- 308 (15 dígitos) | $1.8 \times 10^{16}$ |
+| **float** | 4 | 32 | 3,4E +/- 38 (7 dígitos) | $4,2 \times 10^9$ |
 | **long double** | 12 | 96 | - | - |
 | **__int128** (solo linux) | 16 | 128 | - | - |
 
